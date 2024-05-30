@@ -12,7 +12,6 @@ services:
     build: ./reused-modules-api
     volumes:
       - ./reused-modules-api/:/app/
-      - ./reused-modules-api/api/:/app/api/
     ports:
       - '8080:8080'
 
