@@ -8,15 +8,22 @@ cd ~/app
 git clone https://github.com/PhanAnh1001/reused-modules.git
 cd reused-modules
 git clone https://github.com/PhanAnh1001/reused-modules-api.git
+git clone https://github.com/PhanAnh1001/reused-modules-front.git
+git clone https://github.com/PhanAnh1001/reused-modules-cms.git
 cd ./
-docker-compose up db api
+docker-compose up -d
 ```
 
 ## API
-### Url
 http://localhost:8080/
 
-### DB
+## Front
+http://localhost:3000/
+
+## Cms
+http://localhost:6000/
+
+## DB
 MYSQL_DATABASE: db
 MYSQL_ROOT_PASSWORD: password
-PORT: 33061:3306
+PORT: 33080:3306
