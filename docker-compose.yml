@@ -37,4 +37,4 @@ services:
       MYSQL_DATABASE: db
       MYSQL_ROOT_PASSWORD: password
     ports:
-      - 33061:3306
+      - 33080:3306
