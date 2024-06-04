@@ -28,8 +28,8 @@ services:
     ports:
       - '3002:6000'
 
-  db-mysql:
-    container_name: db-mysql
+  db:
+    container_name: db
     image: mysql:8
     volumes:
       - ./docker/db/dump:/docker-entrypoint-initdb.d
