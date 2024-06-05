@@ -24,7 +24,7 @@ services:
     volumes:
       - ./reused-modules-graphql/:/app/
     ports:
-      - '8081:8081'
+      - '8000:8000'
 
   cms:
     container_name: cms
