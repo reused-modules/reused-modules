@@ -5,12 +5,12 @@ Reuse code for all type of project (Golang-Backend, NextJs-Frontend, or others .
 ```
 mkdir -p ~/app
 cd ~/app
-git clone https://github.com/PhanAnh1001/reused-modules.git
+git clone https://github.com/reused-modules/reused-modules.git/reused-modules.git
 cd reused-modules
-git clone https://github.com/PhanAnh1001/reused-modules-api.git
-git clone https://github.com/PhanAnh1001/reused-modules-graphql.git
-git clone https://github.com/PhanAnh1001/reused-modules-front.git
-git clone https://github.com/PhanAnh1001/reused-modules-cms.git
+git clone https://github.com/reused-modules/reused-modules.git/reused-modules-api.git
+git clone https://github.com/reused-modules/reused-modules.git/reused-modules-graphql.git
+git clone https://github.com/reused-modules/reused-modules.git/reused-modules-front.git
+git clone https://github.com/reused-modules/reused-modules.git/reused-modules-cms.git
 docker-compose up -d
 ```
 
@@ -18,7 +18,7 @@ docker-compose up -d
 http://localhost:8080/
 
 ## GRAPHQL
-http://localhost:8081/
+http://localhost:8000/
 
 ## Front
 http://localhost:3001/
