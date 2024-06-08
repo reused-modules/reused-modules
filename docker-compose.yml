@@ -18,13 +18,13 @@ services:
     ports:
       - '8080:8080'
 
-  graphql:
-    container_name: graphql
-    build: ./reused-modules-graphql
-    volumes:
-      - ./reused-modules-graphql/:/app/
-    ports:
-      - '8000:8000'
+  # graphql:
+  #   container_name: graphql
+  #   build: ./reused-modules-graphql
+  #   volumes:
+  #     - ./reused-modules-graphql/:/app/
+  #   ports:
+  #     - '8000:8000'
 
   cms:
     container_name: cms

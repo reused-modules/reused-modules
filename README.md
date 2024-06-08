@@ -8,7 +8,7 @@ cd ~/app
 git clone https://github.com/reused-modules/reused-modules.git/reused-modules.git
 cd reused-modules
 git clone https://github.com/reused-modules/reused-modules.git/reused-modules-api.git
-git clone https://github.com/reused-modules/reused-modules.git/reused-modules-graphql.git
+<!-- git clone https://github.com/reused-modules/reused-modules.git/reused-modules-graphql.git -->
 git clone https://github.com/reused-modules/reused-modules.git/reused-modules-front.git
 git clone https://github.com/reused-modules/reused-modules.git/reused-modules-cms.git
 docker-compose up -d
@@ -17,8 +17,8 @@ docker-compose up -d
 ## API
 http://localhost:8080/
 
-## GRAPHQL
-http://localhost:8000/
+<!-- ## GRAPHQL
+http://localhost:8000/ -->
 
 ## Front
 http://localhost:3001/
