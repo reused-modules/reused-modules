@@ -17,6 +17,8 @@ services:
       - ./reused-modules-api/:/app/
     ports:
       - '8080:8080'
+    env_file:
+      - ./reused-modules-api/.env
 
   # graphql:
   #   container_name: graphql
@@ -46,3 +48,50 @@ services:
       MYSQL_ROOT_PASSWORD: password
     ports:
       - 33080:3306
+
+  postgres:
+    container_name: "postgres"
+    image: "postgres:12.2-alpine"
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: db
+    volumes:
+      - ./reused-modules-api/_scripts/postgres:/docker-entrypoint-initdb.d
+
+  mongodb-primary:
+    container_name: mongodb-primary
+    image: 'docker.io/bitnami/mongodb:4.4-debian-10'
+    environment:
+      - MONGODB_ADVERTISED_HOSTNAME=mongodb-primary
+      - MONGODB_REPLICA_SET_MODE=primary
+      - MONGODB_ROOT_PASSWORD=password
+      - MONGODB_REPLICA_SET_KEY=replicasetkey123
+    ports:
+      - "27017:27017"
+
+  mongodb-secondary:
+    container_name: mongodb-secondary
+    image: 'docker.io/bitnami/mongodb:4.4-debian-10'
+    depends_on:
+      - mongodb-primary
+    environment:
+      - MONGODB_ADVERTISED_HOSTNAME=mongodb-secondary
+      - MONGODB_REPLICA_SET_MODE=secondary
+      - MONGODB_INITIAL_PRIMARY_HOST=mongodb-primary
+      - MONGODB_INITIAL_PRIMARY_ROOT_PASSWORD=password
+      - MONGODB_REPLICA_SET_KEY=replicasetkey123
+
+  mongodb-arbiter:
+    container_name: mongodb-arbiter
+    image: 'docker.io/bitnami/mongodb:4.4-debian-10'
+    depends_on:
+      - mongodb-primary
+    environment:
+      - MONGODB_ADVERTISED_HOSTNAME=mongodb-arbiter
+      - MONGODB_REPLICA_SET_MODE=arbiter
+      - MONGODB_INITIAL_PRIMARY_HOST=mongodb-primary
+      - MONGODB_INITIAL_PRIMARY_ROOT_PASSWORD=password
+      - MONGODB_REPLICA_SET_KEY=replicasetkey123
