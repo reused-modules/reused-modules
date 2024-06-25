@@ -1,7 +1,7 @@
 # Reused-Modules
 Reuse code for all type of project (Golang-Backend, NextJs-Frontend, or others ...)
 
-## Start
+## Clone repositories
 ```
 mkdir -p ~/app
 cd ~/app
@@ -11,15 +11,21 @@ git clone https://github.com/reused-modules/reused-modules-api.git
 <!-- git clone https://github.com/reused-modules/reused-modules-graphql.git -->
 git clone https://github.com/reused-modules/reused-modules-front.git
 git clone https://github.com/reused-modules/reused-modules-cms.git
-docker-compose up -d
 ```
 
 ## API
 - Environment variables
 
 ```
+cd reused-modules-api
 cp .env.example .env
 ```
+
+## Start
+```
+docker-compose up -d
+```
+
 ## API Request
 
 | Endpoint        | HTTP Method           | Description       |
